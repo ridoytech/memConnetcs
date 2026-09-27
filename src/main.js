@@ -1,16 +1,7 @@
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  
-  // Mobile Menu Toggle (Main Header)
+  // Mobile Menu Toggle (Hero Navbar)
   const mainMobileBtn = document.getElementById('main-mobile-menu-btn');
   const mainMobileMenu = document.getElementById('main-mobile-menu');
   if (mainMobileBtn && mainMobileMenu) {
@@ -19,17 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Independent Sticky Navbar Visibility
+  // Mobile Menu Toggle (Sticky Navbar)
+  const stickyMobileBtn = document.getElementById('sticky-mobile-menu-btn');
+  const stickyMobileMenu = document.getElementById('sticky-mobile-menu');
+  if (stickyMobileBtn && stickyMobileMenu) {
+    stickyMobileBtn.addEventListener('click', () => {
+      stickyMobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Navbar swap on scroll: Hero navbar <-> Sticky white navbar
+  const mainNavbarWrapper = document.getElementById('main-navbar-wrapper');
   const stickyNavbarWrapper = document.getElementById('sticky-navbar-wrapper');
-  
-  if (stickyNavbarWrapper) {
+
+  if (mainNavbarWrapper && stickyNavbarWrapper) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        // Show sticky wrapper
+      if (window.scrollY > 200) {
+        // Hide hero navbar
+        mainNavbarWrapper.classList.add('opacity-0', 'pointer-events-none');
+        mainNavbarWrapper.classList.remove('opacity-100');
+        // Show sticky navbar
         stickyNavbarWrapper.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
         stickyNavbarWrapper.classList.add('opacity-100', 'translate-y-0');
       } else {
-        // Hide sticky wrapper
+        // Show hero navbar
+        mainNavbarWrapper.classList.remove('opacity-0', 'pointer-events-none');
+        mainNavbarWrapper.classList.add('opacity-100');
+        // Hide sticky navbar
         stickyNavbarWrapper.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
         stickyNavbarWrapper.classList.remove('opacity-100', 'translate-y-0');
       }
