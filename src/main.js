@@ -19,23 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Independent Sticky Navbar Visibility
-  const stickyNavbarWrapper = document.getElementById('sticky-navbar-wrapper');
-  
-  if (stickyNavbarWrapper) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        // Show sticky wrapper
-        stickyNavbarWrapper.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.add('opacity-100', 'translate-y-0');
-      } else {
-        // Hide sticky wrapper
-        stickyNavbarWrapper.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.remove('opacity-100', 'translate-y-0');
-      }
-    });
-  }
-
   // Animated Counter for Stats Section
   const counters = document.querySelectorAll('.counter');
   const speed = 200; // The lower the slower
