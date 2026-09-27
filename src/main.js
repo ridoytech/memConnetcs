@@ -1,34 +1,32 @@
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle (Hero Navbar)
-  const mainMobileBtn = document.getElementById('main-mobile-menu-btn');
-  const mainMobileMenu = document.getElementById('main-mobile-menu');
-  if (mainMobileBtn && mainMobileMenu) {
-    mainMobileBtn.addEventListener('click', () => {
-      mainMobileMenu.classList.toggle('hidden');
-    });
+  // === NAVBAR JS ===
+
+  // Hero mobile menu toggle
+  const heroBtn = document.getElementById('hero-menu-btn');
+  const heroMobileMenu = document.getElementById('hero-mobile-menu');
+  if (heroBtn && heroMobileMenu) {
+    heroBtn.addEventListener('click', () => heroMobileMenu.classList.toggle('hidden'));
   }
 
-  // Mobile Menu Toggle (Sticky Navbar)
-  const stickyMobileBtn = document.getElementById('sticky-mobile-menu-btn');
+  // Sticky mobile menu toggle
+  const stickyBtn = document.getElementById('sticky-menu-btn');
   const stickyMobileMenu = document.getElementById('sticky-mobile-menu');
-  if (stickyMobileBtn && stickyMobileMenu) {
-    stickyMobileBtn.addEventListener('click', () => {
-      stickyMobileMenu.classList.toggle('hidden');
-    });
+  if (stickyBtn && stickyMobileMenu) {
+    stickyBtn.addEventListener('click', () => stickyMobileMenu.classList.toggle('hidden'));
   }
 
-  // Show sticky white navbar when scrolled past hero section
-  const stickyNavbarWrapper = document.getElementById('sticky-navbar-wrapper');
-  if (stickyNavbarWrapper) {
+  // Show/hide sticky navbar on scroll
+  const navSticky = document.getElementById('nav-sticky');
+  if (navSticky) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-        stickyNavbarWrapper.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.add('opacity-100', 'translate-y-0');
+      if (window.scrollY > 80) {
+        navSticky.classList.remove('opacity-0', '-translate-y-full');
+        navSticky.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
       } else {
-        stickyNavbarWrapper.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.remove('opacity-100', 'translate-y-0');
+        navSticky.classList.add('opacity-0', '-translate-y-full');
+        navSticky.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
       }
     });
   }
