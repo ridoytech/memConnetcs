@@ -180,4 +180,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // Download Modal Logic
+  const modal = document.getElementById('download-modal');
+  const modalClose = document.getElementById('modal-close');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+  const dlTriggers = document.querySelectorAll('.dl-modal-trigger');
+
+  if (modal) {
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    const openModal = (e) => {
+      e.preventDefault();
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    dlTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openModal);
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+  }
+
 });
