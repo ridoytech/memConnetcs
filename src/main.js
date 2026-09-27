@@ -19,24 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Navbar swap on scroll: Hero navbar <-> Sticky white navbar
-  const mainNavbarWrapper = document.getElementById('main-navbar-wrapper');
+  // Show sticky white navbar when scrolled past hero section
   const stickyNavbarWrapper = document.getElementById('sticky-navbar-wrapper');
-
-  if (mainNavbarWrapper && stickyNavbarWrapper) {
+  if (stickyNavbarWrapper) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {
-        // Hide hero navbar
-        mainNavbarWrapper.classList.add('opacity-0', 'pointer-events-none');
-        mainNavbarWrapper.classList.remove('opacity-100');
-        // Show sticky navbar
         stickyNavbarWrapper.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
         stickyNavbarWrapper.classList.add('opacity-100', 'translate-y-0');
       } else {
-        // Show hero navbar
-        mainNavbarWrapper.classList.remove('opacity-0', 'pointer-events-none');
-        mainNavbarWrapper.classList.add('opacity-100');
-        // Hide sticky navbar
         stickyNavbarWrapper.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
         stickyNavbarWrapper.classList.remove('opacity-100', 'translate-y-0');
       }
