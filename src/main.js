@@ -1,16 +1,16 @@
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle (Sticky Menu)
-  const stickyMobileBtn = document.getElementById('sticky-mobile-menu-btn');
-  const stickyMobileMenu = document.getElementById('sticky-mobile-menu');
-  if (stickyMobileBtn && stickyMobileMenu) {
-    stickyMobileBtn.addEventListener('click', () => {
-      stickyMobileMenu.classList.toggle('hidden');
-    });
-  }
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-  // Mobile Menu Toggle (Main Header Menu)
+  mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  
+  // Mobile Menu Toggle (Main Header)
   const mainMobileBtn = document.getElementById('main-mobile-menu-btn');
   const mainMobileMenu = document.getElementById('main-mobile-menu');
   if (mainMobileBtn && mainMobileMenu) {
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
 
   // Animated Counter for Stats Section
   const counters = document.querySelectorAll('.counter');
@@ -167,5 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-})
 });
