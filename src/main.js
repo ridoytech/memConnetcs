@@ -5,37 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  mobileBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  
-  // Mobile Menu Toggle (Main Header)
-  const mainMobileBtn = document.getElementById('main-mobile-menu-btn');
-  const mainMobileMenu = document.getElementById('main-mobile-menu');
-  if (mainMobileBtn && mainMobileMenu) {
-    mainMobileBtn.addEventListener('click', () => {
-      mainMobileMenu.classList.toggle('hidden');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
   }
 
-  // Independent Sticky Navbar Visibility
-  const stickyNavbarWrapper = document.getElementById('sticky-navbar-wrapper');
-  
-  if (stickyNavbarWrapper) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        // Show sticky wrapper
-        stickyNavbarWrapper.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.add('opacity-100', 'translate-y-0');
-      } else {
-        // Hide sticky wrapper
-        stickyNavbarWrapper.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
-        stickyNavbarWrapper.classList.remove('opacity-100', 'translate-y-0');
-      }
+  // Mobile Menu Toggle (Sticky Header)
+  const stickyMobileBtn = document.getElementById('sticky-mobile-menu-btn');
+  const stickyMobileMenu = document.getElementById('sticky-mobile-menu');
+  if (stickyMobileBtn && stickyMobileMenu) {
+    stickyMobileBtn.addEventListener('click', () => {
+      stickyMobileMenu.classList.toggle('hidden');
     });
   }
 
+  // Sticky Navbar is now always visible, no scroll listener needed.
   // Animated Counter for Stats Section
   const counters = document.querySelectorAll('.counter');
   const speed = 200; // The lower the slower
