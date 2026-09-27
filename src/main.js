@@ -207,4 +207,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
   }
 
+
+  // FAQ Accordion Logic
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-btn');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+    
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+      
+      // Close all first
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        otherItem.querySelector('.faq-icon').classList.remove('rotate-180');
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+
 });
